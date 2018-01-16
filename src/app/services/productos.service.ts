@@ -18,9 +18,12 @@ export class ProductosService {
         res => {
           this.cargando_productos = false;
           this.productos = res.json();
-          console.log(res.json());
         }
-      )
+      );
     }
+  }
+
+  public cargarProducto(cod: string) {
+    return this.http.get(`https://paginaweb-8208e.firebaseio.com/productos/${ cod }.json`);
   }
 }
